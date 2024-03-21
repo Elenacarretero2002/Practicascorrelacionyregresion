@@ -1,17 +1,17 @@
+---
+title: "Practica.CorrelacionLineal"
+output: word_document
+date: "2024-03-21"
+---
 
-nuevo_dir(C:Practicascorrelacionyregresion)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-install.packages("readxl")
-library(readxl)
-data <- read_excel("C:/data/data.xls")
-view(data)
-print(data)
-
-#EJERCICIO 1(TEORIA,pdf)
-#EJERCICIO 2(TEORIA,pdf)
 
 #EJERCICIO 3
 
+```{r, echo = TRUE}
 correlacion_datos <-cor(data)
 print(correlacion_datos)
 
@@ -19,7 +19,7 @@ print(correlacion_datos)
 
 #ACTIVIDAD 4
 
-
+```{r, echo = TRUE}
 panel.cor <- function(x, y, digits = 2, prefix = "", cex.cor, ...) {
   usr <- par("usr")
   on.exit(par(usr))
@@ -41,7 +41,7 @@ pairs(data,
 
 
 #EJERCICIO 5
-
+```{r, echo = TRUE}
 library(correlation)
 matriz <- correlation(data)
 matriz
@@ -49,7 +49,7 @@ matriz
 
 #EJERCICIO 6
 
-
+```{r, echo = TRUE}
 library(ggpubr)
 library(ggplot2)
 ggscatter(data, x = "altura", y = "peso",
@@ -59,7 +59,7 @@ ggscatter(data, x = "altura", y = "peso",
 
 #EJERCICIO 7
 
-
+```{r, echo = TRUE}
 library(corrplot)
 corrplot(cor(data))
 ```
@@ -68,7 +68,7 @@ corrplot(cor(data))
 
 #a)  
 
-
+```{r, echo = TRUE}
 distancia <- c( 1.1,100.2,90.3,5.4,57.5,6.6,34.7,65.8,57.9,86.1)
 n_piezas <- c(110,2,6,98,40,94,31,5,8,10)
 datos_2 <- data.frame(distancia, n_piezas)
@@ -94,6 +94,7 @@ intervaloconfianza_datos_2 <- cor.test(datos_2$distancia, datos_2$n_piezas)$conf
 print(intervaloconfianza_datos_2)
 ```
 #EJERCICIO 9
+```{r, echo = TRUE}
 #a)realcion lineal
 x <- 1:10
 plot(x, x^2)  
